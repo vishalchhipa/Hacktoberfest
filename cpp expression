@@ -1,0 +1,34 @@
+            switch (operation) {
+                case "LS-":
+                    result = leftShift(expression.substring(0, startIndex), param);
+                    break;
+                case "RS-":
+                    result = rightShift(expression.substring(0, startIndex), param);
+                    break;
+                case "LC-":
+                    result = leftCircShift(expression.substring(0, startIndex), param);
+                    break;
+                case "RC-":
+                    result = rightCircShift(expression.substring(0, startIndex), param);
+                    break;
+
+                
+                case "NT":
+                    result = bitwiseNot(expression.substring(0, startIndex));
+                    break;
+                case "*":
+                    result = bitwiseAnd(expression.substring(0, startIndex), expression.substring(paramEndIndex + 1));
+                    break;
+                case "+":
+                    result = bitwiseOr(expression.substring(0, startIndex), expression.substring(paramEndIndex + 1));
+                    break;
+                case "@":
+                    result = bitwiseXor(expression.substring(0, startIndex), expression.substring(paramEndIndex + 1));
+                    break;
+            }
+
+            expression = result + expression.substring(paramEndIndex);
+        }
+
+        return expression;
+    }
