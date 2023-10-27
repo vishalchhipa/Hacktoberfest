@@ -1,0 +1,23 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class EquationSolver {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+            System.out.print("Enter file name: ");
+            String fileName = scanner.nextLine();
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(fileName));
+                int n = Integer.parseInt(reader.readLine().trim());
+
+                for (int i = 1; i <= n; i++) {
+                    String equation = reader.readLine().trim();
+                    String result = solveEquation(equation);
+                    System.out.println(i + ": " + result);
+                }
