@@ -1,0 +1,49 @@
+   // Inside the solveEquation method
+public static String solveEquation(String equation) {
+    String[] terms = equation.split(" = ");
+    String leftSide = terms[0];
+    String rightSide = terms[1];
+
+    leftSide = leftSide.replace("X", rightSide);
+
+    leftSide = evaluateOperation(leftSide, "LS-");
+    leftSide = evaluateOperation(leftSide, "RS-");
+    leftSide = evaluateOperation(leftSide, "LC-");
+    leftSide = evaluateOperation(leftSide, "RC-");
+    leftSide = evaluateOperation(leftSide, "NT");
+    leftSide = evaluateOperation(leftSide, "*");
+    leftSide = evaluateOperation(leftSide, "+");
+    leftSide = evaluateOperation(leftSide, "@");
+
+    return leftSide;
+}
+
+    public static String solveEquation(String equation) {
+        String[] terms = equation.split(" = ");
+        String leftSide = terms[0];
+        String rightSide = terms[1];
+
+        leftSide = leftSide.replace("X", rightSide);
+
+        leftSide = evaluateOperation(leftSide, "LS-");
+        leftSide = evaluateOperation(leftSide, "RS-");
+        leftSide = evaluateOperation(leftSide, "LC-");
+        leftSide = evaluateOperation(leftSide, "RC-");
+        leftSide = evaluateOperation(leftSide, "NT");
+        leftSide = evaluateOperation(leftSide, "*");
+        leftSide = evaluateOperation(leftSide, "+");
+        leftSide = evaluateOperation(leftSide, "@");
+
+        return leftSide;
+    }
+
+    public static String evaluateOperation(String expression, String operation) {
+        while (expression.contains(operation)) {
+            int startIndex = expression.indexOf(operation);
+            int endIndex = startIndex + operation.length();
+
+            int paramStartIndex = endIndex;
+            int paramEndIndex = expression.indexOf(" ", paramStartIndex);
+            if (paramEndIndex == -1) {
+                paramEndIndex = expression.length();
+            }
