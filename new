@@ -1,0 +1,23 @@
+    public static String leftShift(String bits, int positions) {
+        positions %= bits.length();
+        String rotated = bits.substring(positions) + bits.substring(0, positions);
+        return rotated;
+    }
+
+    public static String rightShift(String bits, int positions) {
+        positions %= bits.length();
+        String rotated = bits.substring(bits.length() - positions) + bits.substring(0, bits.length() - positions);
+        return rotated;
+    }
+    
+    public static String leftCircShift(String bits, int positions) {
+        positions %= bits.length();
+        String rotated = bits.substring(positions) + bits.substring(0, positions);
+        return rotated;
+    }
+    
+    public static String rightCircShift(String bits, int positions) {
+        positions %= bits.length();
+        String rotated = bits.substring(bits.length() - positions) + bits.substring(0, bits.length() - positions);
+        return rotated;
+    }
